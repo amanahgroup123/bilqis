@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fff6e7">
+<title>Petualangan Huruf Bilqis — Suara Bahasa Indonesia 🇮🇩</title>
+<style>
+:root{--ink:#33314d;--muted:#76718f;--orange:#ffba64;--pink:#ffc6d8;--blue:#b7e9ff;--mint:#c9f2d9;--cream:#fff8ef;--purple:#8a75da;--surface:#fff;--outline:#ece2f4}
+*{box-sizing:border-box}html{min-height:100%;background:#fff7ea}body{margin:0;font-family:ui-rounded,'Trebuchet MS',system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);background:radial-gradient(circle at 10% 5%,#ffe5d5 0,transparent 32%),radial-gradient(circle at 94% 12%,#e9ddff 0,transparent 32%),#fff8ef;min-height:100vh}
+button,input{font:inherit}button{cursor:pointer;border:0;touch-action:manipulation}button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #654fbd;outline-offset:3px}button:disabled{opacity:.48;cursor:default}
+.shell{max-width:640px;min-height:100dvh;margin:auto;padding:16px clamp(12px,4vw,24px) 42px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.brand{display:flex;align-items:center;gap:10px}.mascot{height:58px;width:58px;background:#fff;border:3px solid #ffe3bd;border-radius:20px;display:grid;place-items:center;font-size:34px;transform:rotate(-5deg);box-shadow:0 5px 0 #ffecd1}.eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#ac7f50;font-weight:900}.brand h1{font-size:clamp(19px,5vw,27px);margin:3px 0 0;line-height:1.1}.stars{white-space:nowrap;display:flex;align-items:center;gap:5px;background:#fff;border-radius:18px;padding:9px 11px;font-size:18px;font-weight:900;box-shadow:0 4px 13px #edddd47a}
+.greeting{background:#fff;border:2px solid #f6e7f1;border-radius:27px;padding:18px;box-shadow:0 10px 26px #eacdd640;position:relative;overflow:hidden}.greeting:before{content:'✦';position:absolute;right:13px;top:4px;color:#f7b1c0;font-size:40px}.greeting h2{font-size:clamp(20px,5vw,29px);margin:0 0 8px;line-height:1.2;max-width:90%}.greeting p{margin:0;color:var(--muted);font-size:15px;line-height:1.5;max-width:96%}.greeting .greet-actions{margin-top:14px;display:flex;gap:9px;flex-wrap:wrap}
+.btn{border-radius:18px;min-height:50px;padding:10px 16px;font-size:15px;font-weight:900;box-shadow:0 4px 0 #0000000e;transition:transform .1s,box-shadow .1s}.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #00000012}.btn-primary{background:#775fce;color:white}.btn-soft{background:#f4ebff;color:#634ba8}.btn-white{background:#fff;color:#55458b;border:2px solid #f0e9f7}.btn-next{background:#ffd06d;color:#553f25}.btn-mini{font-size:14px;padding:8px 12px;min-height:42px}
+.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:17px 0}.tab{padding:12px 3px;border-radius:19px;background:#fff;color:#786f92;box-shadow:0 3px 0 #e9ddde;font-size:14px;font-weight:900;min-height:70px}.tab span{display:block;font-size:25px;margin-bottom:3px}.tab.active{background:#e6d9ff;color:#56389c;box-shadow:0 3px 0 #cbbbed}.tab[aria-selected='true']{outline:2px solid #baa5ee}
+.panel{background:#fff;border:2px solid var(--outline);border-radius:29px;padding:20px 17px;box-shadow:0 9px 0 #efe4f275}.panel h3{font-size:21px;margin:0 0 6px;text-align:center}.subtitle{text-align:center;color:var(--muted);margin:0 0 16px;font-size:14px}.big-card{border-radius:24px;background:linear-gradient(140deg,#d9efff 0%,#ebddff 100%);padding:19px 12px;text-align:center;min-height:245px;display:flex;flex-direction:column;align-items:center;justify-content:center}.big-letter{font-weight:1000;font-size:clamp(85px,23vw,145px);line-height:1;color:#5e56b0;text-shadow:0 5px 0 #ffffff8c}.lowercase{font-size:29px;font-weight:900;color:#8074bd;margin-top:-3px}.object{margin-top:7px;display:flex;align-items:center;justify-content:center;gap:9px}.object-emoji{font-size:54px}.object-name{font-weight:900;font-size:21px}.row-buttons{display:flex;gap:10px;margin-top:15px}.row-buttons .btn{flex:1}.micro{font-size:13px;color:var(--muted);text-align:center;margin:13px 0 0;line-height:1.45}.alphabet{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:15px}.letter-chip{width:44px;height:44px;background:#f9f2ff;color:#6048a7;border-radius:13px;font-weight:900;font-size:21px}.letter-chip.current{background:#775fce;color:#fff}
+.quiz-head{display:flex;justify-content:center;align-items:center;gap:10px;margin-bottom:15px}.pill{background:#fff0d4;color:#996331;border-radius:50px;font-weight:900;font-size:13px;padding:8px 13px}.quiz-picture{background:#fff0db;border:2px dashed #f1dba9;border-radius:24px;min-height:163px;display:grid;place-items:center;gap:0;margin-bottom:16px;padding:14px}.quiz-picture .emoji{font-size:80px;line-height:1.2}.quiz-picture .word{font-size:22px;font-weight:900;color:#795d3e}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.choice{min-height:104px;border:3px solid #e2d5fc;border-radius:22px;font-size:clamp(38px,12vw,60px);font-weight:1000;color:#5f4aa3;background:#f7f2ff}.choice:active{transform:scale(.97)}.choice.correct{border-color:#68cf98;background:#dbfae6;color:#227f55}.choice.wrong{border-color:#f0b6b6;background:#fff1f1;color:#a95e5e}.feedback{margin-top:12px;border-radius:16px;padding:12px;font-weight:900;text-align:center;background:#fff7dd;color:#886235;min-height:47px}.feedback.success{background:#e4f9ec;color:#387751}.quiz-footer{margin-top:13px}.quiz-footer .btn{width:100%}.finish{text-align:center;padding:25px 5px}.finish .emoji{font-size:70px}.finish h3{font-size:27px;margin:8px 0}.finish p{color:var(--muted);line-height:1.6}
+.trace-area{border-radius:23px;border:3px dashed #e1cefa;background:#faf5ff;position:relative;height:310px;touch-action:none;overflow:hidden}.trace-guide{font-family:ui-rounded,'Trebuchet MS',system-ui,sans-serif;position:absolute;inset:0;display:grid;place-items:center;font-size:270px;font-weight:1000;color:transparent;-webkit-text-stroke:5px #e1d3f4;pointer-events:none;user-select:none;opacity:.9}.trace-canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}.trace-toolbar{margin-top:12px;display:flex;gap:9px}.trace-toolbar .btn{flex:1}.trace-feedback{text-align:center;margin-top:10px;color:var(--muted);font-size:13px}
+.settings{background:#fff;border:2px solid #f0e6ef;border-radius:22px;margin-top:16px;padding:12px 16px}.settings summary{cursor:pointer;font-weight:900;color:#6a5a9c;padding:6px 2px}.settings-body{margin-top:15px;border-top:1px solid #eee7f6;padding-top:12px;display:grid;gap:12px}.settings label{font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:space-between;gap:14px}.settings input[type='range']{max-width:140px;width:40%;accent-color:#705bc0}.settings .note{font-size:12px;color:var(--muted);line-height:1.5;margin:0}.voice-panel{border:2px solid #e4d6fa;background:#fcf9ff;border-radius:18px;padding:13px;display:grid;gap:12px}.voice-panel h4{margin:0;font-size:17px}.voice-panel p{margin:0;color:#6d6388;font-size:13px;line-height:1.55}.voice-modes{display:grid;grid-template-columns:1fr 1fr;gap:8px}.voice-modes label{align-items:center;justify-content:flex-start;background:white;border:2px solid #e8e0f2;padding:10px;border-radius:13px;font-size:12px;gap:6px}.voice-modes input{accent-color:#765cc7}.voice-fields{display:grid;gap:12px}.voice-fields label{display:grid;gap:6px;justify-content:stretch}.voice-fields select,.voice-fields input[type=file]{width:100%;max-width:100%;min-height:42px;padding:8px;background:#fff;border:1px solid #d8cce8;border-radius:10px;font-size:13px;color:#45355d}.script-voice{background:#fff;border-left:5px solid #bfa4eb;padding:13px;border-radius:10px;font-size:15px;line-height:1.5;font-weight:800}.record-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}.record-actions button{width:100%;min-height:43px;padding:7px;font-size:12px}.record-status{background:#f4eefe;border-radius:12px;padding:10px;color:#644b93;font-size:13px}.sound-on{white-space:nowrap}.footer{font-size:12px;text-align:center;color:#9a88a7;margin-top:17px;line-height:1.6}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}[hidden]{display:none!important}
+@media(max-width:375px){.brand h1{font-size:18px}.mascot{height:47px;width:47px;font-size:27px}.stars{font-size:15px}.panel{padding:16px 12px}.choice{min-height:85px}.btn{font-size:13px;padding:10px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<main class="shell">
+  <header class="top">
+    <div class="brand"><div class="mascot" aria-hidden="true">🐻</div><div><div class="eyebrow">Dunia huruf ceria</div><h1>Petualangan Bilqis</h1></div></div>
+    <div class="stars" aria-label="Jumlah bintang"><span aria-hidden="true">⭐</span><span id="stars">0</span></div>
+  </header>
+  <section class="greeting" aria-label="Sapaan untuk Bilqis">
+    <h2>Halo, Bilqis! 🌈</h2>
+    <p id="speech-caption" role="status" aria-live="polite">Ayo main dan belajar huruf bersama! Tekan tombol ungu untuk mendengar sapaan.</p>
+    <div class="greet-actions">
+      <button class="btn btn-primary" id="greet" type="button">🔊 Sapa Bilqis</button>
+      <button class="btn btn-soft btn-mini sound-on" id="sound-toggle" type="button" aria-pressed="true">Suara: Nyala</button>
+    </div>
+  </section>
+  <nav class="tabs" aria-label="Pilih permainan">
+    <button class="tab active" type="button" data-tab="learn" aria-selected="true"><span aria-hidden="true">📚</span>Kenalan</button>
+    <button class="tab" type="button" data-tab="quiz" aria-selected="false"><span aria-hidden="true">🎯</span>Tebak Huruf</button>
+    <button class="tab" type="button" data-tab="trace" aria-selected="false"><span aria-hidden="true">✏️</span>Menulis</button>
+  </nav>
+  <section class="panel" id="learn" aria-label="Kenalan huruf">
+    <h3>Yuk, kenalan huruf!</h3><p class="subtitle">Sentuh tombol suara, ya, Bilqis.</p>
+    <div class="big-card">
+      <div class="big-letter" id="learn-letter">A</div><div class="lowercase" id="learn-lower">a</div>
+      <div class="object"><span class="object-emoji" id="learn-emoji">🍎</span><span class="object-name" id="learn-word">Apel</span></div>
+    </div>
+    <div class="row-buttons"><button class="btn btn-primary" id="hear-letter" type="button">🔊 Dengarkan</button><button class="btn btn-next" id="next-letter" type="button">Berikutnya →</button></div>
+    <div class="alphabet" id="alphabet" aria-label="Pilih huruf"></div>
+    <p class="micro">Belajar perlahan, satu huruf demi satu huruf. Tidak perlu terburu-buru.</p>
+  </section>
+  <section class="panel" id="quiz" aria-label="Tebak huruf" hidden>
+    <h3>Bilqis, cari hurufnya! 🎯</h3>
+    <p class="subtitle" id="quiz-question">Dengarkan pertanyaan, lalu sentuh huruf yang benar.</p>
+    <div id="quiz-play">
+      <div class="quiz-head"><div class="pill" id="quiz-count">Soal 1 dari 5</div><button class="btn btn-soft btn-mini" id="hear-question" type="button">🔊 Ulangi</button></div>
+      <div class="quiz-picture"><div class="emoji" id="quiz-emoji">🍎</div><div class="word" id="quiz-word">Apel</div></div>
+      <div class="choices" id="choices"></div>
+      <div class="feedback" id="feedback" role="status" aria-live="polite">Pilih salah satu huruf!</div>
+      <div class="quiz-footer"><button class="btn btn-next" type="button" id="next-question" hidden>Soal selanjutnya →</button></div>
+    </div>
+    <div class="finish" id="quiz-finish" hidden><div class="emoji" aria-hidden="true">🌟🧸🌟</div><h3>Hebat, Bilqis!</h3><p id="finish-message">Kamu sudah mencoba lima soal. Sekarang boleh istirahat sebentar, ya!</p><button class="btn btn-primary" id="play-again" type="button">Main lagi nanti ↻</button></div>
+  </section>
+  <section class="panel" id="trace" aria-label="Latihan menulis" hidden>
+    <h3>Ayo gambar huruf! ✏️</h3><p class="subtitle">Bilqis, ikuti bentuk huruf dengan jari.</p>
+    <div class="trace-area" id="trace-area"><div class="trace-guide" id="trace-guide" aria-hidden="true">A</div><canvas id="trace-canvas" class="trace-canvas" aria-label="Area menggambar huruf dengan jari atau mouse"></canvas></div>
+    <div class="trace-toolbar"><button class="btn btn-white" id="clear-trace" type="button">↺ Hapus</button><button class="btn btn-soft" id="next-trace" type="button">Huruf Lain →</button><button class="btn btn-primary" id="finish-trace" type="button">🔊 Selesai</button></div>
+    <p class="trace-feedback" id="trace-feedback" role="status">Ini latihan gerakan jari, bukan penilaian ketepatan tulisan.</p>
+  </section>
+  <details class="settings"><summary>⚙️ Pengaturan untuk Orang Tua</summary>
+    <div class="settings-body">
+      <div class="voice-panel" aria-label="Pengaturan suara">
+        <h4>🇮🇩 Suara khusus Bahasa Indonesia</h4>
+        <p>Aplikasi hanya akan memakai suara Bahasa Indonesia. Jika perangkat belum menyediakannya, aplikasi tidak akan menggantinya dengan suara bahasa Inggris.</p>
+        <div class="voice-modes">
+          <label><input type="radio" name="voice-mode" value="device" checked> 🔊 Suara Indonesia</label>
+          <label><input type="radio" name="voice-mode" value="family"> 💜 Suara keluarga</label>
+        </div>
+        <div id="device-controls" class="voice-fields">
+          <label for="voice-select">Pilih pengisi suara Bahasa Indonesia
+            <select id="voice-select"><option value="">Mencari suara Bahasa Indonesia…</option></select>
+          </label>
+          <p id="indonesian-voice-status" class="record-status" role="status" aria-live="polite">Sedang memeriksa ketersediaan suara Bahasa Indonesia.</p>
+          <label for="speech-speed">Kecepatan bicara
+            <input type="range" id="speech-speed" min="0.85" max="1.05" step="0.05" value="0.9">
+          </label>
+          <button class="btn btn-white btn-mini" id="sound-test" type="button">🔊 Coba suara terpilih</button>
+          <p>Suara ini masih merupakan suara sintetis dari perangkat. Untuk hasil benar-benar seperti manusia, gunakan rekaman Ayah/Ibu.</p>
+        </div>
+        <div id="family-controls" class="voice-fields" hidden>
+          <p>Rekam kalimat dengan suara Ayah/Ibu, misalnya: “Halo, Bilqis!”. Rekaman hanya disimpan di browser perangkat ini, tidak dikirim ke server.</p>
+          <label for="record-line">Kalimat yang akan direkam
+            <select id="record-line"></select>
+          </label>
+          <div id="record-script" class="script-voice" role="status"></div>
+          <div class="record-actions">
+            <button class="btn btn-primary btn-mini" id="record-start" type="button">🎙️ Mulai merekam</button>
+            <button class="btn btn-soft btn-mini" id="record-stop" type="button" disabled>⏹️ Selesai</button>
+            <button class="btn btn-white btn-mini" id="record-play" type="button">▶️ Putar rekaman</button>
+            <button class="btn btn-white btn-mini" id="record-delete" type="button">🗑️ Hapus rekaman</button>
+          </div>
+          <label for="record-upload">Atau unggah audio rekaman keluarga (MP3 / M4A / WAV / WebM)
+            <input id="record-upload" type="file" accept="audio/*">
+          </label>
+          <div id="record-status" class="record-status" role="status" aria-live="polite">Memuat rekaman…</div>
+          <p>Kalimat yang belum direkam akan tampil sebagai teks tanpa suara sintetis. Rekam kalimat sapaan dan pujian terlebih dahulu, lalu kalimat huruf yang sering Bilqis mainkan. Mikrofon aktif hanya ketika Anda menekan Mulai merekam.</p>
+        </div>
+      </div>
+      <button class="btn btn-white btn-mini" id="reset-progress" type="button">↺ Hapus bintang tersimpan</button>
+      <p class="note">Aktivasi suara dimulai setelah tombol ditekan. Gunakan Chrome atau Edge terbaru. Perizinan mikrofon bisa berbeda untuk file HTML lokal; unggah rekaman audio jika mikrofon tidak tersedia. Bintang tersimpan di perangkat ini saja.</p>
+    </div>
+  </details>
+  <p class="footer">Dibuat untuk Bilqis 💜 · Tanpa akun dan iklan · Ayo belajar dengan gembira, tanpa tekanan.</p>
+</main>
+<script>
+(()=>{
+'use strict';
+const lessons=[
+ {letter:'A',lower:'a',word:'Apel',emoji:'🍎'},
+ {letter:'I',lower:'i',word:'Ikan',emoji:'🐟'},
+ {letter:'U',lower:'u',word:'Ular',emoji:'🐍'},
+ {letter:'E',lower:'e',word:'Es krim',emoji:'🍦'},
+ {letter:'O',lower:'o',word:'Obor',emoji:'🔥'},
+ {letter:'B',lower:'b',word:'Bola',emoji:'⚽'},
+ {letter:'M',lower:'m',word:'Mangga',emoji:'🥭'},
+ {letter:'P',lower:'p',word:'Pisang',emoji:'🍌'},
+ {letter:'S',lower:'s',word:'Sapi',emoji:'🐄'},
+ {letter:'K',lower:'k',word:'Kucing',emoji:'🐈'}
+];
+const $=id=>document.getElementById(id);
+let index=0,traceIndex=0,mode='learn',quizIndex=0,answered=false,wrongCount=0;
+const storeKey='petualangan-bilqis-v1';
+let progress={stars:0,learned:[]};
+try{const p=JSON.parse(localStorage.getItem(storeKey)||'null');if(p&&Number.isFinite(p.stars)&&Array.isArray(p.learned))progress={stars:Math.max(0,Math.min(999,p.stars)),learned:p.learned.filter(v=>typeof v==='string')};}catch(e){}
+let soundEnabled=true;
+const save=()=>{try{localStorage.setItem(storeKey,JSON.stringify(progress));}catch(e){}};
+const showStars=()=>$('stars').textContent=String(progress.stars);
+// Each phrase is recorded independently so Bilqis hears a real parent voice, not a simulated one.
+const staticPrompts=[
+ ['greet','Sapaan awal','Halo, Bilqis! Yuk, kita main huruf bersama!'],
+ ['learn-start','Mulai belajar','Bilqis, yuk kenalan dengan huruf!'],
+ ['trace-start','Mulai menulis','Bilqis, coba ikuti garis huruf ini, ya!'],
+ ['sound-on','Suara dinyalakan','Suara menyala. Ayo bermain, Bilqis!'],
+ ['sound-test','Tes suara','Halo, Bilqis. Ini contoh suara yang menemanimu belajar.'],
+ ['reset','Bintang diatur ulang','Bintang sudah diatur ulang. Kita bisa mulai dari awal, Bilqis!'],
+ ['praise-0','Pujian pertama','Hebat, Bilqis! Betul sekali!'],
+ ['praise-1','Pujian kedua','Hore, Bilqis! Jawabanmu benar!'],
+ ['praise-2','Pujian ketiga','Bagus, Bilqis! Kita lanjut, yuk!'],
+ ['retry','Dorongan untuk mencoba','Tidak apa-apa, Bilqis. Ayo coba lagi!'],
+ ['quiz-finish','Selesai tebak huruf','Hebat, Bilqis! Kamu sudah bermain lima soal. Sekarang boleh istirahat sebentar, ya.'],
+ ['trace-first','Ingatkan untuk menggambar','Bilqis, gambar dulu dengan jari, yuk!'],
+ ['trace-done','Pujian setelah menulis','Wah, Bilqis sudah mencoba menulis! Hebat!']
+];
+const prompts=[...staticPrompts];
+for(const l of lessons){
+ prompts.push(['learn-'+l.letter,'Kenalan huruf '+l.letter,'Bilqis, lihat! Ini huruf '+l.letter+'. '+l.letter+' untuk '+l.word+'. Yuk, sebutkan bersama!']);
+ prompts.push(['quiz-'+l.letter,'Tebak huruf '+l.letter,'Bilqis, mana ya huruf '+l.letter+'. '+l.letter+' untuk '+l.word+'.']);
+ prompts.push(['trace-'+l.letter,'Menulis huruf '+l.letter,'Bilqis, yuk tulis huruf '+l.letter+'.']);
+}
+const promptsByKey=Object.fromEntries(prompts.map(p=>[p[0],p]));
+const blobs=new Map();let voiceMode='device';let currentAudio=null,currentUrl=null,mediaRecorder=null,micStream=null,recordChunks=[];
+const voiceKey='petualangan-bilqis-voice-id-v3';
+try{const savedMode=localStorage.getItem(voiceKey+'-mode');if(savedMode==='family')voiceMode='family';}catch(e){}
+function stopSpeech(){
+ if('speechSynthesis' in window){try{speechSynthesis.cancel()}catch(e){}}
+ if(currentAudio){currentAudio.pause();currentAudio.currentTime=0;currentAudio=null;}
+ if(currentUrl){URL.revokeObjectURL(currentUrl);currentUrl=null;}
+}
+function playBlob(blob){
+ stopSpeech();currentUrl=URL.createObjectURL(blob);currentAudio=new Audio(currentUrl);
+ currentAudio.onended=()=>{if(currentUrl){URL.revokeObjectURL(currentUrl);currentUrl=null;}currentAudio=null;};
+ currentAudio.play().catch(()=>{$('record-status').textContent='Gagal memutar audio. Coba format MP3 atau WAV.';});
+}
+// Hanya suara Bahasa Indonesia; jangan pernah gunakan pengisi suara bahasa lain.
+function getIndonesianVoices(){
+ if(!('speechSynthesis' in window))return [];
+ return speechSynthesis.getVoices().filter(v=>/^id(?:-|$)/i.test((v.lang||'').replace(/_/g,'-')));
+}
+function voiceRank(v){
+ const name=(v.name||'').toLowerCase();
+ let score=0;
+ if(/natural|neural|premium|enhanced/.test(name))score+=30;
+ if(/gadis|damayanti|google bahasa indonesia|indonesian/.test(name))score+=10;
+ if(/female|wanita|perempuan/.test(name))score+=3;
+ return score;
+}
+function refreshVoices(){
+ const select=$('voice-select'),old=select.value;
+ const voices=getIndonesianVoices().sort((a,b)=>voiceRank(b)-voiceRank(a));
+ select.replaceChildren();
+ const status=$('indonesian-voice-status');
+ if(!voices.length){
+  select.add(new Option('Tidak ada suara Bahasa Indonesia',''));
+  select.disabled=true;
+  status.textContent='⚠️ Suara Bahasa Indonesia belum tersedia di perangkat ini. Aktifkan/instal suara Bahasa Indonesia di pengaturan suara perangkat, atau pilih Suara Keluarga. Aplikasi tidak akan membacakan dengan aksen bahasa Inggris.';
+  return;
+ }
+ select.disabled=false;
+ for(const v of voices)select.add(new Option(v.name+' — Bahasa Indonesia',v.voiceURI));
+ let remembered='';try{remembered=localStorage.getItem(voiceKey+'-voice')||'';}catch(e){}
+ const wanted=[old,remembered].find(id=>voices.some(v=>v.voiceURI===id));
+ select.value=wanted || voices[0].voiceURI;
+ status.textContent='✅ '+voices.length+' suara Bahasa Indonesia tersedia. Tekan “Coba suara terpilih” untuk mendengarkannya.';
+}
+function speak(text,phrase){
+ $('speech-caption').textContent=text;
+ if(!soundEnabled)return;
+ stopSpeech();
+ if(voiceMode==='family'){
+  const blob=blobs.get(phrase);
+  if(blob){playBlob(blob);}else{$('speech-caption').textContent=text+' (Kalimat ini belum direkam.)';}
+  return;
+ }
+ if(!('speechSynthesis' in window)||!('SpeechSynthesisUtterance' in window)){
+  $('speech-caption').textContent=text+' (Browser ini belum mendukung suara Bahasa Indonesia.)';return;
+ }
+ // Aman terhadap suara bawaan asing: jangan memanggil speechSynthesis.speak
+ // jika tidak ada suara ber-tag bahasa Indonesia.
+ const voices=getIndonesianVoices();
+ if(!voices.length){
+  refreshVoices();
+  $('speech-caption').textContent=text+' — Suara Bahasa Indonesia belum terpasang. Silakan buka Pengaturan untuk Orang Tua.';
+  return;
+ }
+ const selected=$('voice-select').value;
+ const chosen=voices.find(v=>v.voiceURI===selected)||voices.sort((a,b)=>voiceRank(b)-voiceRank(a))[0];
+ if(!chosen)return;
+ try{
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang='id-ID';
+  u.voice=chosen;
+  u.rate=Number($('speech-speed').value);
+  u.pitch=1.02;
+  u.volume=1;
+  u.onerror=()=>{
+   $('speech-caption').textContent=text+' (Suara Bahasa Indonesia gagal diputar. Coba pilih suara Indonesia lain di pengaturan.)';
+  };
+  speechSynthesis.speak(u);
+ }catch(e){$('speech-caption').textContent=text+' (Tidak dapat memutar suara Bahasa Indonesia.)';}
+}
+function openAudioDB(){return new Promise((resolve,reject)=>{
+ if(!window.indexedDB)return reject(new Error('Penyimpanan browser tidak tersedia'));
+ const req=indexedDB.open('bilqis-family-audio-v1',1);
+ req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('clips'))req.result.createObjectStore('clips');};
+ req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error||new Error('Gagal membuka database'));
+});}
+let db=null,storageReady=false;
+async function loadClips(){
+ try{db=await openAudioDB();storageReady=true;
+  await new Promise((resolve,reject)=>{const req=db.transaction('clips','readonly').objectStore('clips').openCursor();req.onsuccess=()=>{const cur=req.result;if(cur){if(cur.value instanceof Blob)blobs.set(cur.key,cur.value);cur.continue();}else resolve();};req.onerror=()=>reject(req.error);});
+ }catch(e){storageReady=false;}
+ updateRecordUI();
+}
+async function storeClip(key,blob){
+ blobs.set(key,blob);
+ if(storageReady)try{await new Promise((resolve,reject)=>{const req=db.transaction('clips','readwrite').objectStore('clips').put(blob,key);req.onsuccess=resolve;req.onerror=()=>reject(req.error);});}catch(e){storageReady=false;}
+ updateRecordUI();
+}
+async function deleteClip(key){
+ blobs.delete(key);
+ if(storageReady)try{await new Promise((resolve,reject)=>{const req=db.transaction('clips','readwrite').objectStore('clips').delete(key);req.onsuccess=resolve;req.onerror=()=>reject(req.error);});}catch(e){}
+ updateRecordUI();
+}
+function updateRecordUI(message=''){
+ const selected=$('record-line').value,definition=promptsByKey[selected];
+ $('record-script').textContent=definition?definition[2]:'';
+ const count=[...blobs.keys()].filter(k=>promptsByKey[k]).length;
+ const summary=count+' dari '+prompts.length+' kalimat sudah direkam.';
+ $('record-status').textContent=(blobs.has(selected)?'✅ Kalimat ini sudah direkam. ':'🎙️ Kalimat ini belum direkam. ')+summary+(message?' '+message:'')+(!storageReady?' Penyimpanan permanen tidak tersedia di browser ini; rekaman dapat hilang jika halaman ditutup.':'');
+ $('record-play').disabled=!blobs.has(selected);
+ $('record-delete').disabled=!blobs.has(selected);
+}
+for(const p of prompts){$('record-line').add(new Option(p[1]+(p[0]==='greet'?' ⭐':''),p[0]));}
+$('record-line').addEventListener('change',()=>updateRecordUI());
+$('voice-select').addEventListener('change',()=>{try{localStorage.setItem(voiceKey+'-voice',$('voice-select').value)}catch(e){};});
+refreshVoices();if('speechSynthesis' in window)speechSynthesis.addEventListener?.('voiceschanged',refreshVoices);
+document.querySelectorAll('input[name="voice-mode"]').forEach(r=>{r.checked=r.value===voiceMode;r.addEventListener('change',()=>{
+ voiceMode=r.value;stopSpeech();$('device-controls').hidden=voiceMode!=='device';$('family-controls').hidden=voiceMode!=='family';
+ try{localStorage.setItem(voiceKey+'-mode',voiceMode)}catch(e){};
+ $('speech-caption').textContent=voiceMode==='family'?'Suara keluarga dipilih. Silakan rekam sapaan terlebih dahulu.':'Suara Bahasa Indonesia dipilih. Tidak ada pengganti suara bahasa asing.';
+});});
+$('device-controls').hidden=voiceMode!=='device';$('family-controls').hidden=voiceMode!=='family';
+$('record-start').addEventListener('click',async()=>{
+ if(mediaRecorder)return;
+ if(!navigator.mediaDevices?.getUserMedia||typeof MediaRecorder==='undefined'){$('record-status').textContent='Mikrofon browser tidak tersedia. Rekam melalui perekam HP, lalu unggah berkas audionya.';return;}
+ try{
+  micStream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true},video:false});
+  const options=MediaRecorder.isTypeSupported('audio/webm;codecs=opus')?{mimeType:'audio/webm;codecs=opus'}:{};
+  mediaRecorder=new MediaRecorder(micStream,options);recordChunks=[];
+  const key=$('record-line').value;
+  mediaRecorder.ondataavailable=e=>{if(e.data?.size)recordChunks.push(e.data);};
+  mediaRecorder.onstop=async()=>{const type=mediaRecorder?.mimeType||'audio/webm';const blob=new Blob(recordChunks,{type});micStream?.getTracks().forEach(t=>t.stop());micStream=null;mediaRecorder=null;
+   if(blob.size)await storeClip(key,blob);else updateRecordUI('Tidak ada audio yang terekam.');
+   $('record-start').disabled=false;$('record-stop').disabled=true;$('record-line').disabled=false;
+  };
+  mediaRecorder.start();$('record-start').disabled=true;$('record-stop').disabled=false;$('record-line').disabled=true;
+  $('record-status').textContent='🔴 Sedang merekam suara Anda. Bacakan kalimat di atas, lalu tekan Selesai.';
+ }catch(e){if(micStream){micStream.getTracks().forEach(t=>t.stop());micStream=null;}$('record-status').textContent='Izin mikrofon tidak tersedia. Gunakan perekam suara HP, lalu unggah hasilnya di sini.';}
+});
+$('record-stop').addEventListener('click',()=>{if(mediaRecorder?.state==='recording')mediaRecorder.stop();});
+$('record-play').addEventListener('click',()=>{const blob=blobs.get($('record-line').value);if(blob)playBlob(blob);});
+$('record-delete').addEventListener('click',()=>{const key=$('record-line').value;if(confirm('Hapus rekaman kalimat ini?'))deleteClip(key);});
+$('record-upload').addEventListener('change',async e=>{const f=e.target.files?.[0];if(!f)return;
+ if(f.size>8*1024*1024){updateRecordUI('Audio terlalu besar. Maksimum 8 MB.');e.target.value='';return;}
+ if(!f.type.startsWith('audio/')&&!/\.(mp3|m4a|wav|webm|ogg|aac)$/i.test(f.name)){updateRecordUI('Pilih berkas audio yang benar.');e.target.value='';return;}
+ await storeClip($('record-line').value,f);e.target.value='';updateRecordUI('Berkas audio berhasil ditambahkan.');
+});
+loadClips();
+function openTab(next){
+ mode=next;document.querySelectorAll('.tab').forEach(b=>{const selected=b.dataset.tab===next;b.classList.toggle('active',selected);b.setAttribute('aria-selected',String(selected));});
+ for(const section of ['learn','quiz','trace'])$(section).hidden=section!==next;
+ if(next==='learn')speak('Bilqis, yuk kenalan dengan huruf!','learn-start');
+ if(next==='quiz'&&quizIndex<5)askQuestion();
+ if(next==='trace'){resizeCanvas();speak('Bilqis, coba ikuti garis huruf ini, ya!','trace-start');}
+}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>openTab(b.dataset.tab)));
+$('greet').addEventListener('click',()=>speak('Halo, Bilqis! Yuk, kita main huruf bersama!','greet'));
+$('sound-toggle').addEventListener('click',()=>{soundEnabled=!soundEnabled;$('sound-toggle').textContent=soundEnabled?'Suara: Nyala':'Suara: Mati';$('sound-toggle').setAttribute('aria-pressed',String(soundEnabled));if(!soundEnabled)stopSpeech();if(soundEnabled)speak('Suara menyala. Ayo bermain, Bilqis!','sound-on');});
+$('sound-test').addEventListener('click',()=>speak('Halo, Bilqis. Ini contoh suara yang menemanimu belajar.','sound-test'));
+$('reset-progress').addEventListener('click',()=>{if(confirm('Hapus semua bintang Bilqis yang tersimpan di perangkat ini?')){progress={stars:0,learned:[]};save();showStars();speak('Bintang sudah diatur ulang. Kita bisa mulai dari awal, Bilqis!','reset');}});
+function renderLearn(){const l=lessons[index];$('learn-letter').textContent=l.letter;$('learn-lower').textContent=l.lower;$('learn-emoji').textContent=l.emoji;$('learn-word').textContent=l.word;$('alphabet').replaceChildren(...lessons.map((v,i)=>{const b=document.createElement('button');b.className='letter-chip'+(i===index?' current':'');b.textContent=v.letter;b.type='button';b.setAttribute('aria-label','Belajar huruf '+v.letter);b.addEventListener('click',()=>selectLetter(i));return b;}));}
+function letterSpeech(){const l=lessons[index];speak('Bilqis, lihat! Ini huruf '+l.letter+'. '+l.letter+' untuk '+l.word+'. Yuk, sebutkan bersama!','learn-'+l.letter);if(!progress.learned.includes(l.letter)){progress.learned.push(l.letter);save();}}
+function selectLetter(i){index=i;renderLearn();letterSpeech();}
+$('hear-letter').addEventListener('click',letterSpeech);
+$('next-letter').addEventListener('click',()=>selectLetter((index+1)%lessons.length));
+renderLearn();showStars();
+const round=[0,1,2,3,4].map(i=>lessons[i]);
+let quizOrder=round.map((v,i)=>i);
+function scrambleOptions(right,i){const opts=[right,lessons[(i+5)%lessons.length].letter,lessons[(i+7)%lessons.length].letter];return [opts[(i+1)%3],opts[(i+2)%3],opts[i%3]];}
+function askQuestion(){if(quizIndex>=5)return;const l=round[quizOrder[quizIndex]];answered=false;wrongCount=0;$('quiz-question').textContent='Mana huruf '+l.letter+'?';$('quiz-emoji').textContent=l.emoji;$('quiz-word').textContent=l.word;$('quiz-count').textContent='Soal '+(quizIndex+1)+' dari 5';$('feedback').textContent='Sentuh satu huruf, Bilqis!';$('feedback').classList.remove('success');$('next-question').hidden=true;
+ const container=$('choices');container.replaceChildren();const options=scrambleOptions(l.letter,quizIndex);for(const letter of options){const b=document.createElement('button');b.type='button';b.className='choice';b.textContent=letter;b.setAttribute('aria-label','Jawab huruf '+letter);b.addEventListener('click',()=>answer(letter,b,l));container.append(b);}speak('Bilqis, mana ya huruf '+l.letter+'. '+l.letter+' untuk '+l.word+'.','quiz-'+l.letter);}
+function answer(letter,button,l){if(answered)return;
+ if(letter===l.letter){answered=true;button.classList.add('correct');document.querySelectorAll('.choice').forEach(b=>b.disabled=true);progress.stars++;save();showStars();$('feedback').textContent=['Hebat, Bilqis! Betul sekali! ⭐','Wah, tepat sekali, Bilqis! 🌈','Bagus! Kamu menemukan hurufnya! 🎉'][quizIndex%3];$('feedback').classList.add('success');$('next-question').hidden=false;
+ speak(['Hebat, Bilqis! Betul sekali!','Hore, Bilqis! Jawabanmu benar!','Bagus, Bilqis! Kita lanjut, yuk!'][quizIndex%3],'praise-'+(quizIndex%3));
+ }else{wrongCount++;button.classList.add('wrong');setTimeout(()=>button.classList.remove('wrong'),450);$('feedback').textContent='Tidak apa-apa, yuk coba lagi! 💜';speak('Tidak apa-apa, Bilqis. Ayo coba lagi!','retry');}}
+$('hear-question').addEventListener('click',()=>{if(quizIndex<5){const l=round[quizOrder[quizIndex]];speak('Bilqis, mana ya huruf '+l.letter+'. '+l.letter+' untuk '+l.word+'.','quiz-'+l.letter);}});
+$('next-question').addEventListener('click',()=>{quizIndex++;if(quizIndex>=5){$('quiz-play').hidden=true;$('quiz-finish').hidden=false;speak('Hebat, Bilqis! Kamu sudah bermain lima soal. Sekarang boleh istirahat sebentar, ya.','quiz-finish');}else askQuestion();});
+$('play-again').addEventListener('click',()=>{quizIndex=0;quizOrder=[2,4,1,3,0];$('quiz-play').hidden=false;$('quiz-finish').hidden=true;askQuestion();});
+// Tracing canvas. Freehand practice; no automated handwriting correctness claim.
+const canvas=$('trace-canvas'),area=$('trace-area'),ctx=canvas.getContext('2d');let drawing=false,hasTraced=false;
+function resizeCanvas(){const rect=area.getBoundingClientRect();const dpr=Math.min(window.devicePixelRatio||1,2);if(rect.width===0||rect.height===0)return;canvas.width=Math.round(rect.width*dpr);canvas.height=Math.round(rect.height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);ctx.lineWidth=13;ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle='#8865da';hasTraced=false;}
+function tracePoint(e){const r=canvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top};}
+canvas.addEventListener('pointerdown',e=>{e.preventDefault();const p=tracePoint(e);canvas.setPointerCapture(e.pointerId);drawing=true;hasTraced=true;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(p.x+.1,p.y+.1);ctx.stroke();});
+canvas.addEventListener('pointermove',e=>{if(!drawing)return;e.preventDefault();const p=tracePoint(e);ctx.lineTo(p.x,p.y);ctx.stroke();});
+for(const ev of ['pointerup','pointercancel','lostpointercapture'])canvas.addEventListener(ev,()=>{drawing=false;});
+$('clear-trace').addEventListener('click',()=>{resizeCanvas();$('trace-feedback').textContent='Ayo mulai menggambar lagi, Bilqis!';});
+$('next-trace').addEventListener('click',()=>{traceIndex=(traceIndex+1)%lessons.length;$('trace-guide').textContent=lessons[traceIndex].letter;resizeCanvas();$('trace-feedback').textContent='Ikuti bentuk huruf '+lessons[traceIndex].letter+' dengan jari.';speak('Bilqis, yuk tulis huruf '+lessons[traceIndex].letter+'.','trace-'+lessons[traceIndex].letter);});
+$('finish-trace').addEventListener('click',()=>{if(!hasTraced){speak('Bilqis, gambar dulu dengan jari, yuk!','trace-first');return;}$('trace-feedback').textContent='Wah, Bilqis sudah berlatih menggerakkan jari! 🎨';speak('Wah, Bilqis sudah mencoba menulis! Hebat!','trace-done');});
+window.addEventListener('resize',()=>{if(mode==='trace')resizeCanvas();});
+window.addEventListener('pagehide',()=>{stopSpeech();if(micStream){micStream.getTracks().forEach(t=>t.stop());}});
+})();
+</script>
+</body>
+</html>
